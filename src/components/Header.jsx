@@ -45,7 +45,7 @@ const Header = () => {
   } fixed p-[1.8rem] top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
 >
   {/* Updated Navigation Links */}
-  <div
+ { openNavigation &&  <div
     className={`relative z-2 flex flex-col items-center justify-center m-auto space-y-4 lg:flex-row lg:space-y-0 lg:space-x-14`}
   >
     <Link
@@ -73,7 +73,7 @@ const Header = () => {
       ROADMAP
     </Link>
   </div>
-
+}
           <HamburgerMenu toggleMenu={toggleNavigation}/>
         </nav>
 
