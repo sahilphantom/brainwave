@@ -74,7 +74,7 @@ const Header = () => {
     </Link>
   </div>
 
-          <HamburgerMenu />
+          <HamburgerMenu toggleMenu={toggleNavigation}/>
         </nav>
 
         <a
