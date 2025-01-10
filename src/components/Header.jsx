@@ -50,7 +50,7 @@ const Header = () => {
   >
     <Link
       to="/features"
-      className="button  text-n-1/50 transition-colors hover:text-n-1 sm:button mr-6 "
+      className="button  text-n-1/50 transition-colors hover:text-n-1 sm:button mr-4 "
     >
       FEATURES
     </Link>
