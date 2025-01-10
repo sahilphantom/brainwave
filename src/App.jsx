@@ -7,9 +7,8 @@ import Home from './components/Home';
 function App() {
 
   return (
-    <>
-      
-      <Router>
+     <div className=' overflow-x-hidden'>
+     <Router>
       <main className="min-h-screen bg-[#0B090D]">
       <Header />
         <Routes>
@@ -22,7 +21,7 @@ function App() {
       </main>
     </Router>
     <ButtonGradient />
-    </>
+     </div>
   )
 }
 
