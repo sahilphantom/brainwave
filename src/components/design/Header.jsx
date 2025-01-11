@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { background } from "../../assets";
 import { Link } from "react-router-dom";
 export const Rings = () => {
@@ -28,7 +29,7 @@ export const BackgroundCircles = () => {
   );
 };
 
-export const HamburgerMenu = ({toggleMenu}) => {
+export const HamburgerMenu = ({ toggleMenu}) => {
   return (
     <div className="absolute inset-0  lg:hidden">
       <div className="absolute inset-0 opacity-[.03]">
@@ -40,11 +41,11 @@ export const HamburgerMenu = ({toggleMenu}) => {
           alt="Background"
         />
       </div>
-         <div className="flex flex-col space-y-7 text-4xl  relative z-50 pt-36 justify-center items-center">
-             <Link to={"/features"} onClick={()=>toggleMenu()}>Features</Link>
-             <Link to={"/pricing"} onClick={()=>toggleMenu()}>Pricing</Link>
-             <Link to={"/how-to-use"} onClick={()=>toggleMenu()}> How To Use</Link>
-             <Link to={"/roadmap"} onClick={()=>toggleMenu()}>Roadmap</Link>
+        <div className="flex flex-col space-y-7 text-4xl  relative z-50 pt-36 justify-center items-center">
+             <Link className=" text-3xl text-gray-300" to={"/features"} onClick={()=>toggleMenu()}>Features</Link>
+             <Link className=" text-3xl text-gray-300" to={"/pricing"} onClick={()=>toggleMenu()}>Pricing</Link>
+             <Link className=" text-3xl text-gray-300" to={"/how-to-use"} onClick={()=>toggleMenu()}> How To Use</Link>
+             <Link className=" text-3xl text-gray-300" to={"/roadmap"} onClick={()=>toggleMenu()}>Roadmap</Link>
          </div>
       <Rings />
         

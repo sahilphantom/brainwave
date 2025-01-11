@@ -8,7 +8,6 @@ import { HamburgerMenu } from "./design/Header";
 import { useState } from "react";
 
 const Header = () => {
-  const pathname = useLocation();
   const [openNavigation, setOpenNavigation] = useState(false);
 
   const toggleNavigation = () => {
@@ -20,17 +19,9 @@ const Header = () => {
       disablePageScroll();
     }
   };
-
-  const handleClick = (e) => {
-    if (!openNavigation) return;
-    e.preventDefault();
-    enablePageScroll();
-    setOpenNavigation(false);
-  };
-
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50 border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${
+      className={`fixed top-0 left-0 w-full z-[100] border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${
         openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
       }`}
     >
@@ -40,42 +31,39 @@ const Header = () => {
         </Link>
 
         <nav
-  className={`${
-    openNavigation ? "flex" : "hidden"
-  } fixed p-[1.8rem] top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
+  className={` fixed  max-lg:hidden p-[1.8rem] top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
 >
   {/* Updated Navigation Links */}
- { openNavigation &&  <div
-    className={`relative z-2 flex flex-col items-center justify-center m-auto space-y-4 lg:flex-row lg:space-y-0 lg:space-x-14`}
+   <div
+    className={`relative max-lg:hidden flex flex-col items-center justify-center m-auto space-y-4 lg:flex-row lg:space-y-0 lg:space-x-14`}
   >
     <Link
       to="/features"
-      className="button  text-n-1/50 transition-colors hover:text-n-1 sm:button mr-4 "
+      className="button  text-n-1/50 transition-colors hover:text-n-1 sm:button mr-4 max-sm:text-4xl"
     >
       FEATURES
     </Link>
     <Link
       to="/pricing"
-      className="button mr-8  text-n-1/50 transition-colors hover:text-n-1"
+      className="button  text-n-1/50 transition-colors hover:text-n-1 sm:button mr-4 max-sm:text-4xl"
     >
       PRICING
     </Link>
     <Link
       to="/how-to-use"
-      className="button mr-8  text-n-1/50 transition-colors hover:text-n-1"
+      className="button  text-n-1/50 transition-colors hover:text-n-1 sm:button mr-4 max-sm:text-4xl"
     >
       HOW TO USE
     </Link>
     <Link
       to="/roadmap"
-      className="button mr-8  text-n-1/50 transition-colors hover:text-n-1"
+      className="button  text-n-1/50 transition-colors hover:text-n-1 sm:button mr-4 max-sm:text-4xl"
     >
       ROADMAP
     </Link>
   </div>
-}
-          <HamburgerMenu toggleMenu={toggleNavigation}/>
         </nav>
+        {  openNavigation && <HamburgerMenu  toggleMenu={toggleNavigation}/>}
 
         <a
           href=""
