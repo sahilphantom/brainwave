@@ -29,10 +29,11 @@ export const BackgroundCircles = () => {
   );
 };
 
-export const HamburgerMenu = ({ toggleMenu}) => {
+export const HamburgerMenu = ({ toggleMenu }) => {
   return (
-    <div className="absolute inset-0  lg:hidden">
-      <div className="absolute inset-0 opacity-[.03]">
+    <div className="fixed inset-0 z-50 lg:hidden bg-n-8/90 backdrop-blur-md">
+      {/* Background Overlay */}
+      <div className="absolute inset-0 opacity-[0.03]">
         <img
           className="w-full h-full object-cover"
           src={background}
@@ -41,17 +42,49 @@ export const HamburgerMenu = ({ toggleMenu}) => {
           alt="Background"
         />
       </div>
-        <div className="flex flex-col space-y-7 text-4xl  relative z-50 pt-36 justify-center items-center">
-             <Link className=" text-3xl text-gray-300" to={"/features"} onClick={()=>toggleMenu()}>Features</Link>
-             <Link className=" text-3xl text-gray-300" to={"/pricing"} onClick={()=>toggleMenu()}>Pricing</Link>
-             <Link className=" text-3xl text-gray-300" to={"/how-to-use"} onClick={()=>toggleMenu()}> How To Use</Link>
-             <Link className=" text-3xl text-gray-300" to={"/roadmap"} onClick={()=>toggleMenu()}>Roadmap</Link>
-         </div>
-      <Rings />
-        
-      <SideLines />
 
+      {/* Menu Links */}
+      <div className="flex flex-col space-y-7 text-6xl relative z-50 pt-36 justify-center items-center">
+        <Link
+          className="button text-3xl text-gray-300"
+          to="/features"
+          onClick={toggleMenu} // Close the menu when clicking a link
+        >
+          Features
+        </Link>
+        <Link
+          className="button text-3xl text-gray-300"
+          to="/pricing"
+          onClick={toggleMenu} // Close the menu when clicking a link
+        >
+          Pricing
+        </Link>
+        <Link
+          className="button text-3xl text-gray-300"
+          to="/how-to-use"
+          onClick={toggleMenu} // Close the menu when clicking a link
+        >
+          How To Use
+        </Link>
+        <Link
+          className="button text-3xl text-gray-300"
+          to="/roadmap"
+          onClick={toggleMenu} // Close the menu when clicking a link
+        >
+          Roadmap
+        </Link>
+      </div>
+
+      {/* Optional Decorative Elements */}
+      <Rings />
+      <SideLines />
       <BackgroundCircles />
-    </div>
-  );
-};
+
+      {/* Close Button */}
+      <button
+        className="absolute top-5 right-5 text-white text-3xl font-bold z-50"
+        onClick={toggleMenu} // Properly toggle the menu state
+      >
+        ✕
+      </button>
+    </div>)}
